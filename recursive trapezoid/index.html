@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Recursive trapezoid - My Docs</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">My Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">HALLO!</a>
+                            </li>
+                            <li >
+                                <a href="../maclauren/">Maclauren</a>
+                            </li>
+                            <li >
+                                <a href="../newton raphson/">Newton raphson</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">Recursive trapezoid</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../newton raphson/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="disabled">
+                                <a rel="prev" >
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#pengertian">Pengertian</a></li>
+        <li class="main "><a href="#code-program">code program</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h2 id="pengertian">Pengertian</h2>
+<p>Trapesium Rekursif merupakan suatu metode pengintegralan dalam analisis numerik.di dalam Kalkulus, integral tentu didefinisikan sebagai sebuah limit jumlah Riemann.Selanjutnya,menurut Teorema Dasar Kalkulusintegral tersebut dapat dihitung dengan rumus,</p>
+<p>{\displaystyle \int _{a}^{b}f(x)\,dx=F(b)-F(a)}<img alt="{\displaystyle \int _{a}^{b}f(x)\,dx=F(b)-F(a)}" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/91bb6687069a55c6912fbe852ad6bccdca344fbb" /></p>
+<p>Dengan <em>F(x)</em> adalah antiderivatif <em>f(x)</em> (yakni <em>F’(x)=f(x)</em>). Banyak integral tentu yang dapat dihitung dengan rumus tesebut, namun demikian, tidak sedikit integral tentu yang tidak dapat dihitung dengan rumus di atas, hal itu dikarenakan integran <em>f(x)</em>tidak mempunyai antiderivatif yang dapat dinyatakan dalam fungsi-fungsi elementer. Dalam hal ini perhitungan yang dapat dilakukan adalah secara numerik.</p>
+<p>Integrasi numerik merupakan suatu alat utama yang digunakan para ilmuwan untuk mendapatkan nilai-nilai hampiran untuk integral tentu yang tidak dapat diselesaikan secara analitik. Dalam mendapatkan nilai-nilai hampiran integral tentu, digunakan banyak metode, salah satu metode yang dapat digunakan adalah Aturan Trapesium Rekursif. </p>
+<h2 id="code-program">code program</h2>
+<pre><code>def fungsi (x) :
+    y = 1/(1+x)
+    return y
+
+print(&quot;f(x) = 1/(1+x)&quot;)
+a = float(input(&quot;Masukkan batas bawah integral : &quot;))
+b = float(input(&quot;Masukkan batas atas integral : &quot;))
+
+print(&quot;iterasi&quot;,&quot;n&quot;,&quot;trapesium&quot;)
+for iterasi in range (1,16,1):
+    n=2*iterasi
+    h=(b-a)/n
+
+    xi = a
+    y = 0
+    for i in range(1,n):
+        xi = xi+h
+        y += fungsi(xi)
+    hasil = (h)*((fungsi(a)+(2*y)+fungsi(b))/2)
+
+    print (iterasi,n,hasil)
+
+</code></pre>
+
+<p>Ouput :</p>
+<pre><code>f(x) = 1/(1+x)
+Masukkan batas bawah integral : 2
+Masukkan batas atas integral : 3
+iterasi n trapesium
+1 2 0.28869047619047616
+2 4 0.2879349816849817
+3 6 0.28779454400163784
+4 8 0.2877453510163465
+5 10 0.2877225746826515
+6 12 0.28771020049170193
+7 14 0.2877027386110822
+8 16 0.28769789530831674
+9 18 0.28769457463975956
+10 20 0.2876921993271122
+11 22 0.2876904418332646
+12 24 0.2876891050973386
+13 26 0.2876880647918689
+14 28 0.2876872393347254
+15 30 0.2876865733937683
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
